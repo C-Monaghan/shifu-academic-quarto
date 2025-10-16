@@ -28,5 +28,5 @@ hope to add a few custom additions to this.
 Run this command to install the templates in your Quarto project:
 
 ``` bash
-quarto add c-monaghan/shifu-academic-quarto
+quarto add C-Monaghan/shifu-academic-quarto
 ```
