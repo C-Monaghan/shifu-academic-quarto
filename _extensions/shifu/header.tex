@@ -1,0 +1,145 @@
+% CUSTOM DOCUMENT FORMATTING PREAMBLE
+% ===================================
+% This preamble provides APA-style formatting and Quarto compatibility
+% Last updated: 2025-10-15
+
+% PACKAGES & TYPOGRAPHY SETTINGS
+% ==============================
+
+% Paragraph formatting - APA style requires 0.5" indentation
+\setlength{\parindent}{1pc}      % First line paragraph indentation
+\setlength{\leftmargin}{0.5in}   % Left margin for block elements
+
+% Prevent widow/orphan lines in paragraphs (lines alone at top/bottom of page)
+\usepackage[all, defaultlines=2]{nowidow}
+
+% Advanced list customization
+\usepackage{enumitem}
+
+% Lists: Apply document-level indentation to both ordered and unordered lists
+\setlist[1]{labelindent=\parindent}    % First level matches paragraph indent
+\setlist[itemize]{leftmargin=*}        % Remove extra left margin for itemize
+\setlist[enumerate]{leftmargin=*}      % Remove extra left margin for enumerate
+
+% Description lists: Allow terms to wrap properly instead of being boxed
+% Reference: https://tex.stackexchange.com/a/9763/11851
+\setlist[description]{style=unboxed}
+
+% Enhanced table of contents formatting
+\usepackage[titles]{tocloft}
+
+% Fix list formatting inside longtable environments
+% Removes extra margins and vertical spacing in tabular contexts
+% Reference: https://tex.stackexchange.com/a/378190/11851
+\AtBeginEnvironment{longtable}{%
+    \setlist[itemize]{%
+        nosep,           % Remove list padding
+        wide=0pt,        % No additional width
+        leftmargin=*,    % Flush left alignment  
+        before=\vspace*{-\baselineskip},  % Remove space before list
+        after=\vspace*{-\baselineskip}     % Remove space after list
+    }%
+}
+
+% ORCID icon links for author affiliations
+\usepackage{orcidlink}
+
+% Indent first paragraph of sections (APA style requirement)
+\usepackage{indentfirst}
+
+% Line spacing control: \singlespacing, \doublespacing, \onehalfspacing
+\usepackage{setspace}
+
+% DOCUMENT METADATA & TITLE BLOCK
+% ===============================
+
+% Abstract formatting
+\usepackage[overload]{textcase}
+\usepackage[runin]{abstract}
+\renewcommand{\abstractnamefont}{\sffamily\footnotesize\bfseries\MakeUppercase}  % "ABSTRACT" heading
+\renewcommand{\abstracttextfont}{\sffamily\small}                      % Abstract text
+\setlength{\absleftindent}{0em}    % Left margin indentation
+\setlength{\absrightindent}{0em}   % Right margin indentation
+\abslabeldelim{\quad}
+\setlength{\abstitleskip}{-\parindent}
+
+% Keywords command
+\newenvironment{keywords}
+{\hspace{-\parindent}\small\sffamily{\sffamily\footnotesize\bfseries\MakeUppercase{Keywords:}}}
+{\vskip 3em}
+
+% Title block customization  
+\usepackage{titling}
+\setlength{\droptitle}{3em}  % Vertical space before title
+
+% Title formatting
+\pretitle{\par \vskip 2em \begin{center}\normalfont\large\sffamily\bfseries}
+\posttitle{\par\end{center}\vskip 0.75em}
+
+% Command for a note at the top of the first page describing the publication
+% status of the paper.
+\newcommand{\published}[1]{%
+   \gdef\puB{#1}}
+   \newcommand{\puB}{}
+   \renewcommand{\maketitlehooka}{%
+       \par\noindent\footnotesize\sffamily \puB}
+
+% SECTION HEADING FORMATTING
+% ==========================
+
+\usepackage{titlesec}
+
+% Heading styles following APA guidelines:
+\titleformat*{\section}{\Large\sffamily\bfseries\raggedright}
+\titleformat*{\subsection}{\large\sffamily\bfseries\raggedright}
+\titleformat*{\subsubsection}{\normalsize\sffamily\bfseries\raggedright}
+\titleformat*{\paragraph}{\small\sffamily\bfseries\raggedright}
+
+\titlespacing*{\section}{0em}{2em}{0.1em}
+\titlespacing*{\subsection}{0em}{1.25em}{0.1em}
+\titlespacing*{\subsubsection}{0em}{0.75em}{0em}
+
+
+% FOOTNOTE FORMATTING
+% ===================
+
+% Note: footmisc must be loaded after setspace due to package conflicts
+\usepackage[bottom]{footmisc}          % Place footnotes at bottom of page
+\renewcommand*{\footnotelayout}{\footnotesize}  % Consistent footnote text size
+
+% Footnote spacing adjustments
+\addtolength{\skip\footins}{12pt}      % Space between main text and footnote rule
+\setlength{\footnotesep}{16pt}         % Space between individual footnotes
+
+
+% CAPTION FORMATTING
+% ==================
+
+% Figure and table captions
+\usepackage[font=normalsize]{caption}  % Normal size font for captions
+
+% PANDOC COMPATIBILITY MACROS
+% ===========================
+
+% Landscape environment workarounds for Pandoc compatibility
+% Required because Pandoc doesn't process Markdown within LaTeX environments
+\usepackage{pdflscape}
+
+% Custom landscape commands that work with Pandoc markdown tables
+\newcommand{\blandscape}{\begin{landscape}}
+\newcommand{\elandscape}{\end{landscape}}
+
+% Usage example:
+% \blandscape
+% | Column1 | Column2 |
+% |---------|---------|
+% | Data1   | Data2   |
+% \elandscape
+
+% Generic grouping commands for other Pandoc workarounds
+% Note: Can't use \bgroup and \egroup as they are built-in TeX commands
+\newcommand{\stgroup}{\begingroup}
+\newcommand{\fingroup}{\endgroup}
+
+% END CUSTOM PREAMBLE
+% ===================

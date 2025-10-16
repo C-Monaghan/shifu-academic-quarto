@@ -1,0 +1,176 @@
+% DOCUMENT FINALIZATION AND STYLING
+% =================================
+% This section handles final document configuration, headers, bibliography, and styling
+% Loaded after main preamble but before document begins
+
+% Utility package for patching LaTeX commands
+\usepackage{etoolbox}
+
+% LEFT-ALIGNED TEXT OPTION
+% ========================
+% Provides ragged-right (left-aligned) text instead of fully justified
+$if(left-aligned)$
+\usepackage[document]{ragged2e}  % Apply ragged-right to entire document
+
+% Configure ragged2e settings
+\setlength{\RaggedRightParindent}{\parindent}  % Maintain normal paragraph indentation
+\setlength{\RaggedRightRightskip}{0pt plus 3em}  % Allow some stretch for better appearance
+
+% Fix indentation in specific environments that shouldn't have paragraph indentation
+\AtBeginEnvironment{figure}{\setlength{\RaggedRightParindent}{0pt}}    % Figures
+\AtBeginEnvironment{table}{\setlength{\RaggedRightParindent}{0pt}}     % Tables
+\AtBeginEnvironment{longtable}{\setlength{\RaggedRightParindent}{0pt}} % Long tables
+\AtBeginEnvironment{apptbl}{\setlength{\RaggedRightParindent}{0pt}}    % Custom appendix tables
+\AtBeginEnvironment{tcolorbox}{\setlength{\RaggedRightParindent}{0pt}} % Quarto callout boxes
+$endif$
+
+
+% ENDNOTES OPTION
+% ===============
+% Converts footnotes to endnotes (collected at end of document)
+$if(endnotes)$
+\usepackage{endnotes}
+\renewcommand{\enotesize}{\normalsize}  % Endnote text size
+\let\footnote=\endnote  % Redirect all footnotes to become endnotes
+$endif$
+
+
+% RUNNING HEADERS AND FOOTERS
+% ===========================
+\usepackage{fancyhdr}  % Advanced header/footer control
+
+% Header configuration
+\setlength{\headheight}{0.25in}    % Minimum header height
+\renewcommand{\headrulewidth}{0pt} % Remove line between header and text
+\renewcommand{\footrulewidth}{0pt} % Remove line between footer and text
+
+% Normal page style (used for most pages)
+% Format: SHORT TITLE [right-aligned]          Page # [right-aligned]
+\fancypagestyle{normal}{
+  \fancyhf{}  % Clear all header/footer fields
+  \fancyfoot[R]{\thepage}  % Right footer (page number)
+}
+
+% Title page style
+\fancypagestyle{title}{
+  \fancyhf{}  % Clear all header/footer fields
+}
+
+% Apply the normal page style to document
+\pagestyle{normal}
+
+% BIBLIOGRAPHY CONFIGURATION (BIBLATEX)
+% =====================================
+$if(biblatex)$
+$if(biblatex-chicago)$
+% Chicago style bibliography
+\usepackage[$if(biblio-style)$$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex-chicago}
+$else$
+% Standard biblatex with custom style
+\usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
+$endif$
+
+% Bibliography formatting
+\setlength\bibitemsep{0pt}          % No vertical space between entries
+\setlength\bibhang{\parindent}      % Hanging indent matches paragraph indent
+
+% Remove "In:" prefix for most entry types (keep for articles)
+% Fixes biblatex's default behavior of adding "In:" for many entry types
+\renewbibmacro{in:}{%
+  \ifentrytype{article}{}{%        % Keep "In:" for articles
+  \printtext{\bibstring{}\intitlepunct}}}  % Remove for everything else
+
+% Load bibliography database
+\addbibresource{$bibliography$}
+
+% Ensure bibliography starts on a new page
+\pretocmd{\printbibliography}{\clearpage}{}{}
+$endif$
+
+
+% TITLE BLOCK METADATA PROCESSING
+% ===============================
+% Process Quarto YAML metadata into LaTeX title block commands
+\usepackage{authblk}  % Multiple author and affiliation support
+
+% Author list formatting
+\renewcommand*{\Authsep}{, }       % Separator between authors: "Author1, Author2"
+\renewcommand*{\Authand}{ and }    % Separator between last two authors: "Author1 and Author2"
+\renewcommand*{\Authands}{, and }  % Oxford comma style: "Author1, Author2, and Author3"
+\renewcommand*{\Affilfont}{\normalsize}  % Affiliation text size
+\renewcommand*{\Authfont}{\normalsize}   % Author name text size
+
+$if(published)$
+$if(code-repo)$
+\published{\textbf{$date$} \qquad $published$ \\ {\scriptsize $code-repo$}}
+$else$
+\published{\textbf{$date$} \qquad {\scriptsize $published$}}
+$endif$
+$else$
+$if(code-repo)$
+\published{\textbf{$date$} \\ {\scriptsize $code-repo$}}
+$else$
+\published{\textbf{$date$}}
+$endif$
+$endif$
+
+% Document title from Quarto YAML
+$if(title)$
+\title{$title$$if(subtitle)$:$endif$}  % Main title with subtitle separator
+$endif$
+
+% Subtitle handling (requires patching LaTeX's \maketitle)
+$if(subtitle)$
+\makeatletter
+\providecommand{\subtitle}[1]{%  % Custom command to add subtitle
+  \apptocmd{\@title}{\par #1 \par}{}{}  % Append subtitle to title
+}
+\makeatother
+\subtitle{$subtitle$}  % Set subtitle content
+$endif$
+
+% Process authors from Quarto YAML
+% Format: \author[affiliation-numbers, corresponding, orcid]{author-name}
+$for(by-author)$
+\author[
+  $for(it.affiliations)$$it.number$$sep$,$endfor$%
+    $if(it.attributes.corresponding)$\thanks{Corresponding author.}$endif$%
+    $if(it.orcid)$~\orcidlink{$it.orcid$}$endif$]
+  {$by-author.name.literal$}
+$endfor$
+
+% Process affiliations from Quarto YAML  
+% Format: \affil[number]{affiliation-text}
+$for(by-affiliation)$
+\affil[$it.number$]{$it.name$}
+$endfor$
+
+% Remove default date
+\date{}
+
+
+% URL FORMATTING
+% ==============
+% Ensure URLs use the same font as surrounding text
+% Must be loaded after biblatex since some biblatex styles override url styling
+\usepackage{url}
+\urlstyle{same}  % URLs inherit font from surrounding environment
+
+
+% MATH ENVIRONMENT SPACING
+% ========================
+% Ensure display math environments use single spacing and have proper spacing
+% Redefine \[ and \] to wrap display math in singlespace environment
+
+% Save original display math commands
+\let\oldDisplayMath=\[
+\let\endoldDisplayMath=\]
+
+% Redefine with single spacing and extra vertical space
+\renewcommand{\[}{\begin{singlespace}\oldDisplayMath}  % Start single spacing
+\renewcommand{\]}{\endoldDisplayMath\end{singlespace}\vspace{\baselineskip}}  % End single spacing + space
+
+
+% END OF PREAMBLE CONFIGURATION
+% =============================
+% Document body begins after this point

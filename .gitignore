@@ -1,5 +1,2 @@
-.quarto/
-
-*.tex
 /.quarto/
 **/*.quarto_ipynb
