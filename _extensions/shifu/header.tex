@@ -1,14 +1,13 @@
 % CUSTOM DOCUMENT FORMATTING PREAMBLE
 % ===================================
-% This preamble provides APA-style formatting and Quarto compatibility
-% Last updated: 2025-10-15
+% This preamble provides formatting and Quarto compatibility
 
-% PACKAGES & TYPOGRAPHY SETTINGS
-% ==============================
+% -------------------------
+% FONT ENCODING & TYPOGRAPHY
+% -------------------------
 
 % Paragraph formatting - APA style requires 0.5" indentation
 \setlength{\parindent}{1pc}      % First line paragraph indentation
-\setlength{\leftmargin}{0.5in}   % Left margin for block elements
 
 % Prevent widow/orphan lines in paragraphs (lines alone at top/bottom of page)
 \usepackage[all, defaultlines=2]{nowidow}
@@ -49,6 +48,7 @@
 
 % Line spacing control: \singlespacing, \doublespacing, \onehalfspacing
 \usepackage{setspace}
+\onehalfspacing
 
 % DOCUMENT METADATA & TITLE BLOCK
 % ===============================
@@ -89,28 +89,27 @@
 
 \usepackage{titlesec}
 
-% Heading styles following APA guidelines:
-\titleformat*{\section}{\Large\sffamily\bfseries\raggedright}
-\titleformat*{\subsection}{\large\sffamily\bfseries\raggedright}
-\titleformat*{\subsubsection}{\normalsize\sffamily\bfseries\raggedright}
-\titleformat*{\paragraph}{\small\sffamily\bfseries\raggedright}
+% Heading styles
+\newcommand{\headingfont}{\sffamily\bfseries}
+\titleformat*{\section}{\large\headingfont\raggedright}
+\titleformat*{\subsection}{\normalsize\headingfont\raggedright}
+\titleformat*{\subsubsection}{\normalsize\headingfont\itshape\raggedright}
+\titleformat*{\paragraph}{\normalsize\sffamily\itshape\raggedright}
 
 \titlespacing*{\section}{0em}{2em}{0.1em}
 \titlespacing*{\subsection}{0em}{1.25em}{0.1em}
 \titlespacing*{\subsubsection}{0em}{0.75em}{0em}
 
-
 % FOOTNOTE FORMATTING
 % ===================
 
 % Note: footmisc must be loaded after setspace due to package conflicts
-\usepackage[bottom]{footmisc}          % Place footnotes at bottom of page
+\usepackage[bottom]{footmisc}                   % Place footnotes at bottom of page
 \renewcommand*{\footnotelayout}{\footnotesize}  % Consistent footnote text size
 
 % Footnote spacing adjustments
 \addtolength{\skip\footins}{12pt}      % Space between main text and footnote rule
 \setlength{\footnotesep}{16pt}         % Space between individual footnotes
-
 
 % CAPTION FORMATTING
 % ==================
