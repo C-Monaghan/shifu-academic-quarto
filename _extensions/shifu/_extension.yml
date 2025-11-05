@@ -6,6 +6,13 @@ contributes:
   formats:
     common:
       date-format: full
+    docx:
+      reference: "styles/reference.docx"
+      knitr:
+        opts_chunk:
+          dev: "ragg_png"
+          dpi: 300
+          out.width: "80%"
     pdf:
       # Document details
       documentclass: article
@@ -18,7 +25,7 @@ contributes:
       template-partials:
         - "partials/before-body.tex"
         - "partials/title.tex"
-      include-in-header: 
+      include-in-header:
         - "header.tex"
 
       # Document styling
@@ -45,8 +52,8 @@ contributes:
       biblio-style: apa
       biblatexoptions:
         - backend=biber
-      
-      # The titlesec package provides its own mechanism for dealing with 
+
+      # The titlesec package provides its own mechanism for dealing with
       # inline/block headings, so we need to disable pandoc's support for it
       # (see https://stackoverflow.com/q/42916124/120898)
       block-headings: false
@@ -56,4 +63,3 @@ contributes:
       theme: styles/pretty.scss
       template-partials:
         - "partials/title-block.html"
-
