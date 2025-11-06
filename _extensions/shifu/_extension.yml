@@ -7,7 +7,7 @@ contributes:
     common:
       date-format: full
     docx:
-      reference: "styles/reference.docx"
+      reference-doc: "styles/reference.docx"
       knitr:
         opts_chunk:
           dev: "ragg_png"
@@ -23,10 +23,10 @@ contributes:
 
       # Custom template parameters
       template-partials:
-        - "partials/before-body.tex"
-        - "partials/title.tex"
+        - "tex/before-body.tex"
+        - "tex/title.tex"
       include-in-header:
-        - "header.tex"
+        - "tex/header.tex"
 
       # Document styling
       geometry:
@@ -63,3 +63,8 @@ contributes:
       theme: styles/pretty.scss
       template-partials:
         - "partials/title-block.html"
+    typst:
+      template-partials:
+        - typ/typst-template.typ
+        - typ/typst-show.typ
+        - typ/biblio.typ
