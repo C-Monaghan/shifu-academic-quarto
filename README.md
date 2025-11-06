@@ -40,4 +40,4 @@ quarto add C-Monaghan/shifu-academic-quarto
 
 ## Shifu PDF
 
-![](https://github.com/C-Monaghan/shifu-academic-quarto/blob/main/pdf-examples/template.pdf)
+![](https://github.com/C-Monaghan/shifu-academic-quarto/blob/main/pdf-examples/thumbnails/template.png)
