@@ -35,7 +35,7 @@
 )
 
 // Default parameters
-#let article(
+#let shifu-article(
   title: none,
   subtitle: none,
   authors: none,
@@ -47,11 +47,11 @@
   published: none,
   code: none,
   cols: 1,
-  margin: (x: 1.25in, y: 1.25in),
+  margin: (x: 1in, y: 1in),
   paper: "us-letter",
   lang: "en",
-  region: "US",
-  font: "Times New Roman",
+  region: none,
+  font: (),
   fontsize: 11pt,
   mathfont: "New Computer Modern Math",
   codefont: "DejaVu Sans Mono",
@@ -122,6 +122,7 @@
   }
 
   // Beginning of article
+  // Date + Preprint + Code Repsoitory
   if date != none and published != none and code != none {
     align(left)[#block(inset: (bottom: 1em))[
       #text(weight: "bold", size: 0.8em)[#date]
@@ -130,21 +131,34 @@
       #linebreak()
       #text(size: 0.8em)[#code]
     ]]
+  } else if date != none and published != none {
+    align(left)[#block(inset: (bottom: 1em))[
+      #text(weight: "bold", size: 0.8em)[#date]
+      #h(1em) // Small gap between date and preprint statement
+      #text(size: 0.8em)[#published]
+    ]]
+  } else if date != none {
+    align(left)[#block(inset: (bottom: 1em))[
+      #text(weight: "bold", size: 0.8em)[#date]
+    ]]
   }
 
+  // Title
   if title != none {
-    v(3cm)
+    v(2cm)
     align(center)[#block(inset: (bottom: 1em))[
         #text(weight: "bold", size: 1.4em)[#title]
     ]]
   }
 
+  // Subtitle
   if subtitle != none{
     align(center)[#block(inset: (bottom: 1em))[
         #text(weight: "bold", size: 1.4em)[#subtitle]
     ]]
   }
 
+  // Author blocks
   if authors != none {
     let count = authors.len()
     let ncols = calc.min(count, 3)
@@ -179,6 +193,7 @@
       // v(20pt, weak: true)
   }
 
+  // Abstract + Keywords
   if abstract != none {
     block(inset: 2em)[
     #text(weight: "semibold")[Abstract] #h(1em) #abstract
@@ -212,3 +227,8 @@
     columns(cols, doc)
   }
 }
+
+#set table(
+  inset: 6pt,
+  stroke: none
+)

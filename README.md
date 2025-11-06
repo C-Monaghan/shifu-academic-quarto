@@ -15,8 +15,15 @@ Heiss’](https://www.andrewheiss.com/) custom LaTeX templates
 [hikmah](https://github.com/andrewheiss/hikmah-academic-quarto/tree/main)
 (which are also based off [Kieran Healy’s
 template](https://github.com/kjhealy/latex-custom-kjh)). While I like
-this template, I also want to develop my own have my own person style to
-them.
+this template, I also want to develop my own and have my own person
+style to them.
+
+I have also really been enjoying learning
+[Typst](https://typst.app/docs/) and so this template is entirely
+written with Typst. Christopher Kenny’s
+[ctk-article](https://github.com/christopherkenny/ctk-article/tree/main)
+was invaluable in helping me understand the file structure and how to
+pull meta data from YAML into Typst.
 
 Right now, this template is heavily inspired by [Andrew
 Heiss’](https://www.andrewheiss.com/) template, essentially being a mix
@@ -30,3 +37,7 @@ Run this command to install the templates in your Quarto project:
 ``` bash
 quarto add C-Monaghan/shifu-academic-quarto
 ```
+
+## Shifu PDF
+
+![](https://github.com/C-Monaghan/shifu-academic-quarto/blob/main/pdf-examples/template.pdf)

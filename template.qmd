@@ -2,21 +2,23 @@
 title: "Becoming more than what you are"
 subtitle: "A study of inner peace"
 short-title: "Inner Peace"
-date: "2025-09-25"
-author: 
+date: today
+author:
   - name: Master Shifu
     email: mastershifu@jadepalace.com
     orcid: 0000-0000-0000-0000
-    affiliation: The Jade Palace
+    affiliations:
+        - name: The Jade Palace
     attributes:
       corresponding: true
   - name: Master Oogway
     email: masteroogway@jadepalace.com
     orcid: 0000-0000-0000-0000
-    affiliation: The Spirit World
-correspondence-prefix: "Correspondence concerning this article should be addressed to"
+    affiliations:
+      - name: The Spirit World
+correspondence-prefix: "Corresponding author"
 abstract: |
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas rutrum quis nisi et aliquet. Quisque vitae erat vitae metus malesuada vehicula. Nullam aliquam condimentum facilisis. Vestibulum eget nisl mattis velit sagittis feugiat. Phasellus eget magna eu lacus iaculis pharetra. Proin lobortis nibh non magna congue, ac finibus eros hendrerit. Sed vehicula lacus risus, a varius velit iaculis ut. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum iaculis, mauris ut sodales ultricies, nulla purus convallis metus, pulvinar aliquet purus ex sed ipsum. Nulla ac dignissim risus. Maecenas nec convallis odio, eu maximus nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut tristique sit amet eros ut pulvinar. Curabitur elementum interdum tempor. Cras quis nulla orci. Fusce feugiat tortor ac mauris mollis, sit amet iaculis sem pellentesque. Aliquam et ex arcu. Nullam egestas malesuada tincidunt. Pellentesque lorem nulla, feugiat commodo dictum a, dignissim ac dui. Donec ullamcorper orci eros, tincidunt pulvinar lorem consectetur eget. 
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas rutrum quis nisi et aliquet. Quisque vitae erat vitae metus malesuada vehicula. Nullam aliquam condimentum facilisis. Vestibulum eget nisl mattis velit sagittis feugiat. Phasellus eget magna eu lacus iaculis pharetra. Proin lobortis nibh non magna congue, ac finibus eros hendrerit. Sed vehicula lacus risus, a varius velit iaculis ut. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum iaculis, mauris ut sodales ultricies, nulla purus convallis metus, pulvinar aliquet purus ex sed ipsum. Nulla ac dignissim risus. Maecenas nec convallis odio, eu maximus nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut tristique sit amet eros ut pulvinar. Curabitur elementum interdum tempor. Cras quis nulla orci. Fusce feugiat tortor ac mauris mollis, sit amet iaculis sem pellentesque. Aliquam et ex arcu. Nullam egestas malesuada tincidunt. Pellentesque lorem nulla, feugiat commodo dictum a, dignissim ac dui. Donec ullamcorper orci eros, tincidunt pulvinar lorem consectetur eget.
 additional-info: |
   **Data Availability:** All data and replication code are publicly available at ...
 keywords:
@@ -25,21 +27,46 @@ keywords:
   - Mars
 published: "This manuscript is a preprint and is currently under review at *Tranquility*"
 code-repo: "Access the dragon scroll at <https://kungfupanda.fandom.com/wiki/Dragon_Scroll>"
-bibliography: references.bib
+bibliography: meta/references.bib
+csl: meta/apa.csl
 format:
-  shifu-pdf: default
+  shifu-typst: default
+  shifu-docx: default
 ---
 
 # Section
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas rutrum quis nisi et aliquet. Quisque vitae erat vitae metus malesuada vehicula. Nullam aliquam condimentum facilisis. Vestibulum eget nisl mattis velit sagittis feugiat. Phasellus eget magna eu lacus iaculis pharetra. Proin lobortis nibh non magna congue, ac finibus eros hendrerit. Sed vehicula lacus risus, a varius velit iaculis ut. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
 
-Vestibulum iaculis, mauris ut sodales ultricies, nulla purus convallis metus, pulvinar aliquet purus ex sed ipsum. Nulla ac dignissim risus. Maecenas nec convallis odio, eu maximus nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut tristique sit amet eros ut pulvinar. Curabitur elementum interdum tempor. Cras quis nulla orci. Fusce feugiat tortor ac mauris mollis, sit amet iaculis sem pellentesque. Aliquam et ex arcu. Nullam egestas malesuada tincidunt. Pellentesque lorem nulla, feugiat commodo dictum a, dignissim ac dui. Donec ullamcorper orci eros, tincidunt pulvinar lorem consectetur eget. 
+Vestibulum iaculis, mauris ut sodales ultricies, nulla purus convallis metus [@monaghan2024], pulvinar aliquet purus ex sed ipsum. Nulla ac dignissim risus. Maecenas nec convallis odio, eu maximus nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut tristique sit amet eros ut pulvinar. Curabitur elementum interdum tempor. Cras quis nulla orci. Fusce feugiat tortor ac mauris mollis, sit amet iaculis sem pellentesque. Aliquam et ex arcu. Nullam egestas malesuada tincidunt. Pellentesque lorem nulla, feugiat commodo dictum a, dignissim ac dui. Donec ullamcorper orci eros, tincidunt pulvinar lorem consectetur eget.
 
 ## Subsection
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas rutrum quis nisi et aliquet. Quisque vitae erat vitae metus malesuada vehicula. Nullam aliquam condimentum facilisis. Vestibulum eget nisl mattis velit sagittis feugiat. Phasellus eget magna eu lacus iaculis pharetra. Proin lobortis nibh non magna congue, ac finibus eros hendrerit. Sed vehicula lacus risus, a varius velit iaculis ut. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas rutrum [@monaghan2025] quis nisi et aliquet. Quisque vitae erat vitae metus malesuada vehicula. Nullam aliquam condimentum facilisis. Vestibulum eget nisl mattis velit sagittis feugiat. Phasellus eget magna eu lacus iaculis pharetra. Proin lobortis nibh non magna congue, ac finibus eros hendrerit. Sed vehicula lacus risus, a varius velit iaculis ut. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
 
 ### Subsubsection
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas rutrum quis nisi et aliquet. Quisque vitae erat vitae metus malesuada vehicula. Nullam aliquam condimentum facilisis. Vestibulum eget nisl mattis velit sagittis feugiat. Phasellus eget magna eu lacus iaculis pharetra. Proin lobortis nibh non magna congue, ac finibus eros hendrerit. Sed vehicula lacus risus, a varius velit iaculis ut. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+Lorem ipsum dolor sit amet, consectetur [@monaghan2024; @monaghan2025] adipiscing elit. Maecenas rutrum quis nisi et aliquet. Quisque vitae erat vitae metus malesuada vehicula. Nullam aliquam condimentum facilisis. Vestibulum eget nisl mattis velit sagittis feugiat. Phasellus eget magna eu lacus iaculis pharetra. Proin lobortis nibh non magna congue, ac finibus eros hendrerit. Sed vehicula lacus risus, a varius velit iaculis ut. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+```{r}
+#| label: tbl-cars
+#| tbl-cap: "Example of a table."
+#| tbl-cap-location: top
+#| tbl-pos: H
+#| echo: false
+
+# Table information
+mtcars[1:4, 1:5] |>
+    tinytable::tt()
+```
+
+```{r}
+#| label: fig-cars
+#| fig-cap: "Miles per gallon vs. Horsepower"
+#| fig-width: 5
+#| echo: false
+
+plot(mtcars$hp, mtcars$mpg)
+```
+
+\newpage

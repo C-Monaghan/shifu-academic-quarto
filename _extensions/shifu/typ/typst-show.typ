@@ -1,5 +1,5 @@
 // What to pull from the YAML file
-#show: doc => article(
+#show: doc => shifu-article(
 $if(title)$
   title: [$title$],
 $endif$
