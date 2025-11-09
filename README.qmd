@@ -10,23 +10,50 @@ format: gfm
 
 ---
 
-For a while now, I have been using [Andrew Heiss'](https://www.andrewheiss.com/) custom LaTeX templates [hikmah](https://github.com/andrewheiss/hikmah-academic-quarto/tree/main) (which are also based off [Kieran Healy's template](https://github.com/kjhealy/latex-custom-kjh)). While I like this template, I also want to develop my own and have my own person style to them.
+For a while, I’ve been using [Andrew Heiss’](https://www.andrewheiss.com/) excellent custom LaTeX templates, [hikmah](https://github.com/andrewheiss/hikmah-academic-quarto/tree/main), which themselves build on [Kieran Healy’s template](https://github.com/kjhealy/latex-custom-kjh).
+While I’ve really enjoyed working with those, I wanted to create my own version - one that reflects my personal style and takes advantage of new tools.
 
-I have also really been enjoying learning [Typst](https://typst.app/docs/) and so this template is entirely written with Typst. Christopher Kenny's [ctk-article](https://github.com/christopherkenny/ctk-article/tree/main) was invaluable in helping me understand the file structure and how to pull meta data from YAML into Typst.
+Recently, I’ve been learning [Typst](https://typst.app/docs/), and this project represents a reimplementation of the Hikmah-style academic template using Typst. I owe particular thanks to [Christopher Kenny](https://github.com/christopherkenny) and his excellent [ctk-article](https://github.com/christopherkenny/ctk-article) template, which helped me understand Typst’s file structure and how to pull metadata from YAML into Typst dynamically.
 
-Right now, this template is heavily inspired by [Andrew Heiss'](https://www.andrewheiss.com/) template, essentially being a mix between both the hikmah and hikmah-manuscript variant. In the future I hope to add a few custom additions to this.
+The result is **Shifu**, a modern Typst-based academic manuscript template that blends aspects of Andrew Heiss’ *hikmah* and *hikmah-manuscript* variants, with additional refinements and customizations planned for future releases.
 
-There are two formats that can be applied:
+---
 
-- By default, authors are laid out in a 3x1 grid (Shifu Typst (default)).
-- However, I found this messy with 4+ authors so by setting `block-author=false` inline authorship is applied, typical with what you would see in journal style papers (Shifu Typst (custom))
+## Layout Options
 
-##  Installation
+Shifu currently supports two layout modes for author formatting:
 
-Run this command to install the templates in your Quarto project:
+- **Default (block-author = true)**
+  Authors are displayed in a grid layout (up to 3 columns), similar to the original *hikmah* template.
+  *Use this for manuscripts with a small number of authors.*
+
+- **Inline (block-author = false)**
+  Authors are listed on a single line, followed by their affiliations below (more typical of journal-style layouts).
+  *Recommended when you have 4 or more authors.*
+
+---
+
+## Installation
+
+To install the templates in your Quarto project, run:
 
 ```bash
 quarto add C-Monaghan/shifu-academic-quarto
+```
+
+After installation, you can reference the template in your YAML header:
+
+```yaml
+format:
+  shifu-typst: default
+```
+
+or
+
+```yaml
+format:
+  shifu-typst:
+    block-author: false
 ```
 
 ## Shifu Typst (default)
@@ -36,3 +63,10 @@ quarto add C-Monaghan/shifu-academic-quarto
 ## Shifu Tyspt (block-author = false)
 
 ![](https://github.com/C-Monaghan/shifu-academic-quarto/blob/main/pdf-examples/thumbnails/shifu-custom-pdf.png)
+
+## Acknowledgements
+
+This project draws inspiration from the following excellent works:
+
+- [Andrew Heiss](https://www.andrewheiss.com/)
+- [Christopher Kenny](https://github.com/christopherkenny)
