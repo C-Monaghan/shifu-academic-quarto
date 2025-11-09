@@ -57,6 +57,7 @@
   codefont: "DejaVu Sans Mono",
   sectionnumbering: none,
   toc: false,
+  block-author: none,
   toc_title: none,
   toc_depth: none,
   toc_indent: 1.5em,
@@ -159,7 +160,7 @@
   }
 
   // Author blocks
-  if authors != none {
+  if authors != none and block-author != none {
     let count = authors.len()
     let ncols = calc.min(count, 3)
     grid(
@@ -191,6 +192,32 @@
       )
 
       // v(20pt, weak: true)
+  } else if authors != none {
+    align(center, {
+      authors.map(author => {
+        author.name
+        h(1pt)
+        super(author.subscript)
+        if "corresponding" in author {
+            if correspondence != none {
+                footnote(correspondence, numbering: "*")
+                counter(footnote).update(n => n - 1)
+            }
+        }
+        if "orcid" in author [
+            #link("https://orcid.org/" + author.orcid)[
+                #box(height: 9pt, image(bytes(orcid_svg)))
+                ]
+        ]
+      }).join(", ", last: " and ")
+    })
+    align(center, {
+      authors.map(author => {
+        super(author.subscript)
+        h(1pt)
+        author.department
+      }).join(" \n ")
+    })
   }
 
   // Abstract + Keywords

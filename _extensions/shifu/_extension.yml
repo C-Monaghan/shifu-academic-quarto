@@ -20,6 +20,7 @@ contributes:
       linestretch: 1
       linkcolor: "#800000"
       biblio-title: References
+      block-author: true # Should the authors be listed in a block
 
     # Word document
     docx:

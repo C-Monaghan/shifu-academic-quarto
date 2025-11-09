@@ -10,10 +10,11 @@ $if(by-author)$
   authors: (
 $for(by-author)$
 $if(it.name.literal)$
-    ( name: [$it.name.literal$],
-      last: [$it.name.family$],
+    ( name: "$it.name.literal$",
+      last: "$it.name.family$",
     $for(it.affiliations/first)$
-    department: $if(it.name)$[$it.name$]$else$none$endif$,
+      department: $if(it.name)$[$it.name$]$else$none$endif$,
+      subscript: $if(it.id)$[$it.id$]$else$none$endif$,
     $endfor$
     $if(it.email)$
       email: [$it.email$],
@@ -91,6 +92,9 @@ $if(blind)$
 $endif$
 $if(author-note)$
   author-note: "$author-note$",
+$endif$
+$if(block-author)$
+  block-author: $block-author$,
 $endif$
   doc,
 )
