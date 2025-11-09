@@ -38,12 +38,13 @@ customizations planned for future releases.
 Shifu currently supports two layout modes for author formatting:
 
 - **Default (block-author = true)** Authors are displayed in a grid
-  layout (up to 3 columns), similar to the original *hikmah* template.
-  *Use this for manuscripts with a small number of authors.*
-
+  layout (up to 3 columns).
+  - Similar to the original *hikmah* template.
+  - *Use this for manuscripts with a small number of authors.*
 - **Inline (block-author = false)** Authors are listed on a single line,
-  followed by their affiliations below (more typical of journal-style
-  layouts). *Recommended when you have 4 or more authors.*
+  followed by their affiliations below
+  - More typical of journal-style layouts.
+  - *Recommended when you have 4 or more authors.*
 
 ------------------------------------------------------------------------
 
