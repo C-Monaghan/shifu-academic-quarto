@@ -16,6 +16,11 @@ I have also really been enjoying learning [Typst](https://typst.app/docs/) and s
 
 Right now, this template is heavily inspired by [Andrew Heiss'](https://www.andrewheiss.com/) template, essentially being a mix between both the hikmah and hikmah-manuscript variant. In the future I hope to add a few custom additions to this.
 
+There are two formats that can be applied:
+
+- By default, authors are laid out in a 3x1 grid (Shifu Typst (default)).
+- However, I found this messy with 4+ authors so by setting `block-author=false` inline authorship is applied, typical with what you would see in journal style papers (Shifu Typst (custom))
+
 ##  Installation
 
 Run this command to install the templates in your Quarto project:
@@ -24,6 +29,10 @@ Run this command to install the templates in your Quarto project:
 quarto add C-Monaghan/shifu-academic-quarto
 ```
 
-## Shifu PDF
+## Shifu Typst (default)
 
-![](https://github.com/C-Monaghan/shifu-academic-quarto/blob/main/pdf-examples/thumbnails/template.png)
+![](https://github.com/C-Monaghan/shifu-academic-quarto/blob/main/pdf-examples/thumbnails/shifu-default-pdf.png)
+
+## Shifu Tyspt (block-author = false)
+
+![](https://github.com/C-Monaghan/shifu-academic-quarto/blob/main/pdf-examples/thumbnails/shifu-custom-pdf.png)
