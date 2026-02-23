@@ -23,16 +23,10 @@ contributes:
       block-author: true # Should the authors be listed in a block
 
     # Word document
-    docx:
-      reference-doc: "styles/reference.docx"
-      knitr:
-        opts_chunk:
-          dev: "ragg_png"
-          dpi: 300
-          out.width: "80%"
-
-    # HTML
-    html:
-      theme: styles/pretty.scss
-      template-partials:
-        - "partials/title-block.html"
+    # docx:
+    #  reference-doc: "styles/reference.docx"
+    #  knitr:
+    #    opts_chunk:
+    #      dev: "ragg_png"
+    #      dpi: 300
+    #      out.width: "80%"
