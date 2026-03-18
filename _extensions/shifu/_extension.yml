@@ -15,8 +15,7 @@ contributes:
         - typ/typst-template.typ
         - typ/typst-show.typ
         - typ/biblio.typ
-      main-font:
-        - Crimson
+      mainfont: "New Computer Modern" # Default font
       linestretch: 1
       linkcolor: "#800000"
       biblio-title: References
